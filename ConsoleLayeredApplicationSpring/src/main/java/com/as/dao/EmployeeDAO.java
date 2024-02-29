@@ -2,10 +2,11 @@ package com.as.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.as.bo.EmployeeBO;
 
@@ -14,6 +15,7 @@ public class EmployeeDAO implements IEmployeeDAO{
 	private DataSource ds ;
 	private static final String INSERT_QUERY = "INSERT INTO REALTIMEDI_SPRING_EMPLOYEE (ename,desig,basicsalary,grosssalary,netsalary) values(?,?,?,?,?)";
 	
+	@Autowired
 	public EmployeeDAO(DataSource ds) {
 		this.ds = ds;
 	}

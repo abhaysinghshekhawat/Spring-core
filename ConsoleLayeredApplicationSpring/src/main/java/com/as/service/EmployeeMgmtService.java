@@ -1,5 +1,7 @@
 package com.as.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.as.bo.EmployeeBO;
 import com.as.dao.IEmployeeDAO;
 import com.as.dto.EmployeeDTO;
@@ -9,6 +11,7 @@ public class EmployeeMgmtService implements IEmployeeMgmt {
 	//HAS-A-PROPERTY
 	private IEmployeeDAO dao;
 	
+	@Autowired
 	public EmployeeMgmtService(IEmployeeDAO dao) {
 		this.dao = dao;
 	}

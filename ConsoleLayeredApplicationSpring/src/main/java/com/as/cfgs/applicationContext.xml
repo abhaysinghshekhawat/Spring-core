@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
+	<context:property-placeholder location="com/as/common/jdbc.properties"/>
     <bean id="dmds" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
-    	<property name="DriverClassName" value="com.mysql.cj.jdbc.Driver" />
-    	<property name="url" value="jdbc:mysql://localhost:3306/springpractice?useSSL=false" />
-    	<property name="username" value="root" />
-    	<property name="password" value="toor" />
+    	<property name="DriverClassName" value="${jdbc.driver}" />
+    	<property name="url" value="${jdbc.url}" />
+    	<property name="username" value="${jdbc.username}" />
+    	<property name="password" value="${jdbc.password}" />
     
     </bean>
     
     <bean id="empDAO" class="com.as.dao.EmployeeDAO" >
-    	<constructor-arg name="ds" ref="dmds" />
+    	<!-- <constructor-arg name="ds" ref="dmds" /> -->
     </bean>
     
     <bean id="empService" class="com.as.service.EmployeeMgmtService" >
-    	<constructor-arg name="dao" ref="empDAO" />
+    	<!-- <constructor-arg name="dao" ref="empDAO" /> -->
     </bean>
     
     <bean id="controller" class="com.as.controller.MainController">
-    	<constructor-arg name="empService" ref="empService" />
+    	<!-- <constructor-arg name="empService" ref="empService" /> -->
     </bean>
+    
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+   
 
 </beans>

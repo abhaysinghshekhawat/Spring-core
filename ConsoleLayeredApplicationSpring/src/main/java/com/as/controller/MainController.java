@@ -1,5 +1,7 @@
 package com.as.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.as.dto.EmployeeDTO;
 import com.as.service.IEmployeeMgmt;
 import com.as.vo.EmployeeVO;
@@ -8,6 +10,7 @@ public class MainController {
 
 	private IEmployeeMgmt empService;
 	
+	@Autowired
 	public MainController(IEmployeeMgmt empService){
 		this.empService = empService;
 	}

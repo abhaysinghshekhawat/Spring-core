@@ -1,0 +1,35 @@
+per:
+  info:
+    # simple props
+    name: abhay
+    pid: 101
+    
+    # array type props
+    fav-color:
+      - red
+      - black
+      - green
+      
+    # list type properties
+    studies:
+      - 12-pcm
+      - b.tech-cse
+      - m.tech-IT
+      
+    # set type properties
+    phone-numbers:
+      - 946105921
+      - 7726033479
+      - 9413622483
+      
+    # map type properties
+    id-details:
+      aadharNo: PEWD98734
+      panNo: KHGPS6142N
+      
+    # has-a-type property
+    job-info:
+      desig: software engineer
+      department: Development
+      company: google
+    

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="cr" class="com.as.comps.DTDC" />
+    
+    <bean id="fkp" class="com.as.comps.Flipkart">
+    	<property name="courier" ref="cr" />
+    </bean>
+
+</beans>

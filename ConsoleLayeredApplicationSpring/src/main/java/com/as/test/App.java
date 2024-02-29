@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.env.Environment;
 
 import com.as.controller.MainController;
 import com.as.vo.EmployeeVO;
@@ -18,10 +20,17 @@ public class App
 {
     public static void main( String[] args )
     {
-        DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
-        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
-        reader.loadBeanDefinitions("com/as/cfgs/applicationContext.xml");
-        MainController controller =  factory.getBean("controller",MainController.class);
+		/*
+		 * DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+		 * XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
+		 * reader.loadBeanDefinitions("com/as/cfgs/applicationContext.xml");
+		 * MainController controller =
+		 * factory.getBean("controller",MainController.class);
+		 */
+    	ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("com/as/cfgs/applicationContext.xml");
+        MainController controller = ctx.getBean("controller",MainController.class);
+        Environment env = ctx.getEnvironment();
+        System.out.println(env.toString());
        try {
     	   Scanner sc = new Scanner(System.in);
     	   System.out.println("insert Employee name: ");
